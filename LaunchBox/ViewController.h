@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *signInButton;
+@property (weak, nonatomic) IBOutlet UITextField *emailText;
+@property (weak, nonatomic) IBOutlet UITextField *passwordText;
 
-- (IBAction)lockScreen;
+@property (copy, nonatomic) NSString *email;
+@property (copy, nonatomic) NSString *password;
+
+- (IBAction)login;
 
 @end

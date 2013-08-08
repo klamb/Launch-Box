@@ -15,6 +15,8 @@
 @implementation ViewController
 
 @synthesize signInButton = _signInButton;
+@synthesize email = _email;
+@synthesize password = _password;
 
 - (void)viewDidLoad
 {
@@ -28,16 +30,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)lockScreen {
+- (IBAction)login {
+    
+    /*
     if([self.signInButton.titleLabel.text isEqualToString:@"Sign Out"]) {
         [self.signInButton setTitle:@"Sign In" forState:UIControlStateNormal];
     }
     else {
          [self.signInButton setTitle:@"Sign Out" forState:UIControlStateNormal];
     }
+     */
     
-    
+    [self performSegueWithIdentifier:@"LoggingIn" sender:self];
     
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    if(theTextField == self.emailText || theTextField == self.passwordText) {
+        [theTextField resignFirstResponder];
+    }
+    return YES;
+}
+
 
 @end
